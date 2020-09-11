@@ -10,8 +10,7 @@ function createInputElm(label, type = "text") {
   let myInput = document.createElement("input");
   let content = document.createTextNode(`${label}: `)
   myInput.type = type;
-  document.body.append(myLabel);
-  myLabel.append(content);
+  myLabel.innerText = content;
   myLabel.append(myInput);
   return myLabel;
 }
@@ -22,12 +21,9 @@ createInputElm('Your age', 'number'); //<label>Your age: <input type="number"></
 
 // 2. Do the same thing as above using string literal like `<h1>Hello</h1>`
 
-// function createInputElm(label, type = "text") {
-//   let content = document.createTextNode(`${label}: `);
-//   let myLabel = document.body.append(`<label>${content} <input type=${type}></label>`);
-  
-//   return myLabel;
-// }
+function createInputElm(label, type = "text") {
+  return `<label>${label}: <input type=${type}></label>`;
+}
 
 // TEST
 createInputElm('Your name'); //<label>Your name: <input type="text"></label>
@@ -38,10 +34,9 @@ createInputElm('Your age', 'number'); //<label>Your age: <input type="number"></
 
 function createList(array) {
   let ul = document.createElement("ul");
-  document.body.append(ul);
   array.forEach(element => {
     let item = document.createElement("li");
-    item.append(`${element}`);
+    item.innerText = element;
     ul.append(item);
   });
   return ul;
@@ -65,19 +60,18 @@ createList(['Afghanistan', 'Antarctica', 'Congo', 'Estonia']);
 
 function createTodoList(arr) {
   let ul = document.createElement("ul");
-  document.body.append(ul);
   arr.forEach(element => {
     let item = document.createElement("li");
     let p = document.createElement("p");
     let input = document.createElement("input");
     let span = document.createElement("span");
 
-    p.append(element.name);
+    p.innerText = element.name;
     input.checked = element.isDone;
     input.type = "checkbox";
     input.name = "";
     input.id = "";
-    span.append(`X`);
+    span.innerText = "X";
     
     item.append(p, input, span);
     ul.append(item);
