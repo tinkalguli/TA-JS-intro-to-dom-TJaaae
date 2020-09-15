@@ -1,21 +1,139 @@
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background: rgb(235, 235, 235);
+  height: 80vh;
 }
-.container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-  grid-gap: 1rem;
+
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.box {
-  border: 2px solid #d6bcfa;
-  height: 500px;
-  border-radius: 10px;
+
+.clock {
+  border-radius: 50%;
+  width: 300px;
+  height: 300px;
+  background: rgb(32, 32, 32);
+  /* background-image: linear-gradient(#5f9ea0, #5f9ea0); */
+  background-size: cover;
+  border: 10px solid rgb(49, 49, 49);
+  padding: 1rem;
+  box-shadow: 1rem 1rem 2rem #0c0c0c, -1rem -1rem 1rem #ffffff,
+  inset 1rem 1rem 1rem #1f1d1d, inset -1rem -1rem 1rem #202020;
+  position: relative;
 }
-h1,
-h2 {
+
+.hand {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background: rgb(153, 29, 29);
+  border-radius: 50%;
+}
+
+.hand::before {
+  content: "";
+  transform: rotate(180deg);
+  transform-origin: top;
+  top: 50%;
+  position: absolute;
+}
+
+.hour::before {
+  background: rgb(153, 29, 29);
+  height: 60px;
+  width: 4px;
+  z-index: 1;
+}
+
+.minute::before {
+  background: rgb(153, 29, 29);
+  height: 80px;
+  width: 3px;
+  z-index: 2;
+}
+
+.second::before {
+  background: rgb(153, 29, 29);
+  height: 100px;
+  width: 2px;
+  z-index: 3;
+}
+
+.bar {
+  width: 100%;
+  height: 100%;
+  position: absolute;
   text-align: center;
+  /* font-size: 1rem; */
+  font-weight: 700;
+  color: aliceblue;
+  line-height: 1;
+}
+
+.bar-1 {
+  transform: rotate(30deg);
+}
+
+.bar-2 {
+  transform: rotate(60deg);
+}
+
+.bar-3 {
+  transform: rotate(90deg);
+  font-size: 2rem;
+  font-weight: 300;
+  line-height: 0.8;
+}
+
+.bar-4 {
+  transform: rotate(120deg);
+}
+
+.bar-5 {
+  transform: rotate(150deg);
+}
+
+.bar-6 {
+  transform: rotate(180deg);
+  font-size: 2rem;
+  font-weight: 300;
+  line-height: 0.8;
+}
+
+.bar-7 {
+  transform: rotate(210deg);
+}
+
+.bar-8 {
+  transform: rotate(240deg);
+}
+
+.bar-9 {
+  transform: rotate(270deg);
+  font-size: 2rem;
+  font-weight: 300;
+  line-height: 0.8;
+}
+
+.bar-10 {
+  transform: rotate(300deg);
+}
+
+.bar-11 {
+  transform: rotate(330deg);
+}
+
+.bar-12 {
+  transform: rotate(360deg);
+  font-size: 2rem;
+  font-weight: 300;
+  line-height: 0.8;
 }
